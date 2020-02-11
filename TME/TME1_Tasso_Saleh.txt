@@ -1,0 +1,53 @@
+Lenaïg Tasso
+Sarah Saleh
+
+
+1.2
+1)
+F1 : insatisfiable car il y a eu un clash ( a et non a dans la même case)
+F2 : valide car non F2 est insatisfiable
+F3 : satisfiable car une feuille est ouverte et pas valide car il y a eu un clash ( a et non a dans la même case)
+F4 : satisfiable car 2 feuilles sont ouvertes et pas valide car il y a eu 2 clash
+F5 : satisfiable et 6 feuilles sont ouvertes et pas valide car il y a eu 3 clash
+F6 : satisfiable car toutes les feuilles sont ouvertes et aussi valide car la négation est insatisfiable
+
+1.3
+1)
+(a) fievre <-> sup38
+(b) grippe -> tamiflu
+(c) fievre & toux -> grippe
+(d) toux & sup38
+
+2)
+F= (sup38 <-> fievre) & (grippe -> tamiflu) & (fievre & toux -> grippe) & (toux & sup38) -> tamiflu
+imp  and and equiv S F imp G T and imp and F To G and To S T
+La formule est satisfiable et non valide donc il faut pas forcément prendre du tamiflu. Par exemple si on a pas de toux et juste de la fièvre, on ne prend pas.
+
+3) 
+fievre & toux -> grippe | bronchite
+(sup38 <-> fievre) & (grippe -> tamiflu) & (fievre & toux -> grippe | bronchite) & (toux & sup38) -> tamiflu
+imp  and and equiv S F imp G T and imp and F To or G B and To S T
+La formule est satisfiable donc il ne faut pas forcément prendre du tamiflu dans tous les cas.
+
+1.4
+1)
+abc
+000 0
+001 0
+010 0
+011 1
+100 1
+101 0
+110 1
+111 1
+
+
+2)or and imp A B and B C and imp C B imp B A
+
+3) F = a&b&c | a&b | a
+3 pré modeles : abc, ab, a
+
+4) Oui il existe un lien, 3 pré modèles et 4 lignes qui vérifient la formule dans la table de vérité.
+
+
+

@@ -1,0 +1,48 @@
+Sarah Saleh
+Lenaïg Tasso
+
+Exercice 1
+
+imp nec P not nec not nec P : satisfiable
+-> negation : insatisfiable donc VALIDE
+
+and nec P nec nec not P : insatisfiable
+
+imp nec P nec nec not P : satisfiable
+-> negation : satisfiable donc formule pas valide et seulement satisfiable
+
+Exercice 2
+
+On va regarder la négation de l'equivalence dans la logique S4-Explicit-R, qu'on a par ailleurs traduite en double implication.
+not and imp not nec P nec not nec P imp nec not nec P not nec P
+-> insatisfiable
+Ici on voit bien que dans le premier premodel donné on ne voit pas la regle euclidienne. Avec cette regle on aurait pu arriver à un clash, et donc prouver l'insatisfiabilité de la négation et donc la validité de la formule.
+
+
+Exercice 3
+
+isItTrue or nec RA PA nec RA not PA
+Dans w1, A ne peut pas savoir si elle a le papillon sur la tete
+Dans w2, A peut savoir si elle a le papillon sur la tete
+Dans w3, A peut savoir si elle a le papillon sur la tete
+Donc A ne peut pas toujours savoir si elle a le papillon sur la tete
+
+isItTrue not or nec RC PC nec RC not PC
+De la même manière, donc aucun monde, C ne peut savoir si elle a le papillon sur la tête donc C ne peut pas toujours savoir si elle a le papillon sur la tête.
+
+isItTrue not or not PC nec RB or nec RB PB nec RB not PB
+La formule n'est pas valide mais elle est satisfiable dans PC, donc RC-> nec RB est valide.
+
+isItTrue not nec RA not or nec RC PC nec RC not PC 
+La formule est valide.
+
+isItTrue or or not nec RB PB nec RB not PB nec RA or nec RB PB nec RB not PB 
+La formule est valide.
+
+Exercice 4
+
+agent 3 : (w1,w2) (w2,w4) (w4,w3) (w3,w1)
+agent 1 : (w1,w2) (w2,w4)
+agent 2 : (w1,w2)
+
+

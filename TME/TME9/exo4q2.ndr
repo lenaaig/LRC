@@ -1,0 +1,31 @@
+p 90.0 50.0 p0 1 n
+p 345.0 185.0 p5 1 n
+t 95.0 120.0 sculpter w 50 75 n {} ne
+p 90.0 200.0 p4 0 n
+p 95.0 395.0 p3 0 n
+p 345.0 475.0 p6 0 n
+t 345.0 385.0 assembler s 20 30 n {} ne
+p 575.0 385.0 p2 0 n
+t 575.0 170.0 fabriquerRoue e 10 20 n {} ne
+p 570.0 55.0 p1 4 n
+t 90.0 275.0 peindre w 20 30 n {} ne
+e fabriquerRoue 0.4596265137 55.78530272 p5 0.08730434892 63.28506933 1 n
+e p5 0.9566361434 70.60453238 fabriquerRoue 0.5851407443 62.76941931 1 n
+e p5 0.4331740293 61.32699243 sculpter 0.9813615644 68.46897107 1 n
+e sculpter 0.9184506852 73.43023908 p5 0.492545069 64.07027392 1 n
+e p5 0.5256385733 81.0493677 peindre 0.0860104348 75.80237463 1 n
+e p0 sculpter 1 n
+e sculpter p4 1 n
+e p4 peindre 1 n
+e peindre p3 1 n
+e p3 assembler 1 n
+e p1 fabriquerRoue 1 n
+e fabriquerRoue p2 1 n
+e p2 assembler 4 n
+e assembler p6 1 n
+e assembler 0.1548637972 56.8594759 p5 0.8419759499 54.91812087 1 n
+e p5 0.6681225305 52.83937925 assembler 0.3346265139 59.16924882 1 n
+e peindre 0.01206455542 79.22752047 p5 0.6041004989 75.60423275 1 n
+h exo4q3_barbier
+
+

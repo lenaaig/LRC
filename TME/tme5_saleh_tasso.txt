@@ -1,0 +1,32 @@
+Sarah SALEH
+Lenaïg TASSO
+
+Exerice 1 : Verification de modèles dans la logique K
+
+Question 1 :
+
+M, w1 |= a
+
+Lotrec va apres avoir lu la formule donné dans le ExempleOfModelAndFormula va entrer dans la Top_Down_Strategy. Ici, il n'y a rien à réécrire, on va donc aller directement dans la Bottom_Up_Strategy. On va donc utiliser la règle Atom_True_Bottom_Up qui va verifier si le monde w1 contient la variable a et si elle est atomique. Si la règle est vérifiée on va donc marquer notre formule à Yes.
+
+
+M, w4 |= []b ^ []a
+
+Lotrec va apres avoir lu la formule donné dans le ExempleOfModelAndFormula va entrer dans la Top_Down_Strategy. Ici on va rentrer dans la règle And_Top_Down car on a une conjonction dans la formule. Cette règle va regarder si les deux parties de la conjonction sont vraies. Puis on va rentrer dans la règle Nec_Top_Down qui va regarder si il y a pas dans tous les mondes possibles à partir de w4, si ils contiennent la variable a. On va ensuite passer dans la Bottom_Up_Strategy et utiliser la règle Atom_True_Bottom_Up comme vu lors de notre premier exemple pour les mondes en relation avec w4. La règle utilisé par la suite est la Atom_Not_True_Bottom_Up. Elle agit comme la règle précedente sauf qu'elle marque notre formule à No si il n'y a pas l'élément désiré dans les mondes liés à w4.
+
+
+Compte-rendu :
+
+1.2.
+Lotrec permet de verifier les modeles dans la logique K. On va lui donner un modèle à vérifier qu'il va analyser en deux phases : la phase top-down et la phase bottom-up. 
+Un modèle est defini comme étant une règle sans conditions, avec seulement des actions : création de noeuds (=monde), 'linkage' entre les noeuds, ajout d'un élément dans les noeuds, et enfin les contraintes sur le modèle. 
+La phase top-down va décomposer le modèle donné avec certaines règles jusqu'à obtenir des formules atomiques qu'il marquera par un Yes ou No en fonction de la vérification des contraintes.
+La phase Bottom-up va faire remonter la valeur de vérité jusqu'au modèle initial donné par l'utilisateur. Il va alors marqué cette formule d'un Yes ou No.
+
+3.
+On peut aussi rajouter des nouveaux connectors comme l'implication et lui associer des règles top-down et bottom-up avec conditions et actions qu'il va appliquer lors de la rencontre du connector "imp" dans la phase descendante et montante. On ajoute ensuite ces règles dans les stratégies associées.
+
+Exercice 2 : Satisfiabilité dans la logique K:
+
+Ici, on va agir de manière similaire à la méthode des tableaux. En partant de notre formule, Lotrec va construire des prémodèles et le décomposer en feuille. Si il trouve une feuille ouverte alors la formule est satisfiable. 
+Si on veut savoir si une formule est valide, on va lui passer la négation de notre formule. Si on trouve toutes les feuilles en "clash" alors la formule initiale est valide.

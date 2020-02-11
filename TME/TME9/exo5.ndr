@@ -1,0 +1,36 @@
+t 870.0 95.0 recharge n 0 w n {} ne
+p 760.0 130.0 stock50c 1 n
+p 1035.0 280.0 RendPiece50c 0 e
+t 825.0 365.0 rendu50c2 s 0 w n {} ne
+p 665.0 440.0 stock1e 0 n
+t 635.0 145.0 rendu50c n 0 w n {} ne
+p 500.0 180.0 p5 0 n
+t 320.0 50.0 insert50c n 0 w n {} ne
+t 320.0 365.0 insert2e n 0 w n {} ne
+t 320.0 180.0 insert1e n 0 w n {} ne
+p 55.0 200.0 insererPiece 1 n
+t 490.0 530.0 rendu1e s 0 w n {} ne
+p 490.0 365.0 p4 0 n
+p 1035.0 530.0 RendPiece1e 0 e
+p 1040.0 50.0 compteBon 0 s
+e insererPiece insert2e 1 n
+e insererPiece insert1e 1 n
+e insererPiece insert50c 1 n
+e rendu1e 0.1231914989 124.4588285 p5 0.8214165383 89.89994438 1 n
+e stock50c recharge ?-1 n
+e rendu50c2 p5 3 n
+e insert2e p4 1 n
+e p4 rendu1e 1 n
+e insert1e p5 1 n
+e recharge 0.7102146667 48.50773134 stock50c 0.8422404731 65.73431372 10 n
+e stock1e rendu1e 1 n
+e p5 rendu50c 1 n
+e stock50c 0.5117677632 40.00000002 rendu50c 0.01686793446 47.26520919 1 n
+e rendu1e RendPiece1e 1 n
+e p4 rendu50c2 1 n
+e stock1e rendu50c2 ?-1 n
+e rendu50c RendPiece50c 1 n
+e insert50c compteBon 1 n
+h exo5
+
+

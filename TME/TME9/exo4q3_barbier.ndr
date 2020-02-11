@@ -1,0 +1,28 @@
+p 225.0 125.0 barbierAuRepos 1 n
+p 395.0 130.0 barbierActif 0 n
+p 325.0 350.0 clientAssis 0 n
+t 320.0 25.0 debutPause e 0 w n {} ne
+t 315.0 225.0 finPause e 0 w n {} ne
+t 580.0 140.0 rasageEtSortie e 40 70 n {} ne
+p 325.0 440.0 placesLibre 10 n
+p 110.0 465.0 ouvert 1 n
+t 115.0 385.0 {entréClient} w 1 500 n {} ne
+e debutPause barbierAuRepos 1 n
+e barbierActif debutPause 1 n
+e barbierAuRepos finPause 1 n
+e finPause barbierActif 1 n
+e barbierActif 0.9321001256 48.33218389 rasageEtSortie 0.554369794 47.75981575 1 n
+e rasageEtSortie 0.43032335 51.89412298 barbierActif 0.02740501929 46.69047012 1 n
+e clientAssis rasageEtSortie 1 n
+e rasageEtSortie placesLibre 1 n
+e {entréClient} clientAssis 1 n
+e placesLibre {entréClient} 1 n
+e clientAssis 0.1871670418 52.0 finPause 0.8310211483 49.24428901 1 n
+e finPause 0.7119251083 42.20189569 clientAssis 0.3237918088 44.72135955 1 n
+e {entréClient} 0.8509078499 42.20189569 ouvert 0.02862457352 33.54101966 1 n
+e ouvert 0.323791809 33.54101968 {entréClient} 0.6475836177 34.99999999 1 n
+e debutPause 0.5516735553 216.3007167 placesLibre 0.4247114805 285.334891 10 n
+e placesLibre 0.4095833236 111.5168149 debutPause 0.5695674486 252.7647127 10 n
+h exo4q3_barbier
+
+

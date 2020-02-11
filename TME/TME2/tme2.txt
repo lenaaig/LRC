@@ -1,0 +1,209 @@
+Lenaïg Tasso
+Sarah Saleh
+
+Exercice 1 :
+
+1- [trace]  ?- r(f(f(a)),b).
+   Call: (7) r(f(f(a)), b) ? creep
+   Call: (8) p(f(a), b) ? creep
+   Call: (9) r(a, b) ? creep
+   Exit: (9) r(a, b) ? creep
+   Exit: (8) p(f(a), b) ? creep
+   Exit: (7) r(f(f(a)), b) ? creep
+true.
+
+
+Pour prouver r(f(f(a)),b), on part de non r(f(f(a)),b) on a besoin de C2 et on unifie avec sigma : X->f(a), Y->b
+Etape suivante : pour trouver non f(f(a),b) on a besoin de C3 et on unifie avec X<-a, Y<-b
+Etape suivante : pour trouver non r(a,b) on a C1
+Etape suivante : clause vide
+
+2 - Pour prouver p(f(a),b), on prend la négation donc on prend C1 et il reste non r(a,b)
+Etape suivante : on prend C1 et il reste la clause vide
+
+[trace]  ?- p(f(a),b).
+   Call: (7) p(f(a), b) ? creep
+   Call: (8) r(a, b) ? creep
+   Exit: (8) r(a, b) ? creep
+   Exit: (7) p(f(a), b) ? creep
+true.
+
+
+Exercice 2
+
+2 - [trace]  ?- q(X,b).
+   Call: (7) q(_G3026, b) ? creep
+   Exit: (7) q(b, b) ? creep
+X = b .
+
+Pour prouver q(X,b), il faut utiliser C2 et donc X=b.
+
+[trace]  ?- q(b,X).
+   Call: (7) q(b, _G3027) ? creep
+   Exit: (7) q(b, b) ? creep
+X = b .
+
+
+De même, pour provuer q(b,X) il faut utiliser C2 et on a donc X=B.
+
+Exercice 3 :
+
+1- Les étudiants sérieux révisent leur examens : reviser(X) :- serieux(X).
+devoir(X) :- consciencieux(X).
+reussir(X) :- reviser(X).
+serieux(X) :- devoir(X).
+consciencieux(zoe), consciencieux(pascal).
+[trace]  ?- reussir(X).
+   Call: (7) reussir(_G2394) ? 
+   Call: (8) reviser(_G2394) ? 
+   Call: (9) serieux(_G2394) ? 
+   Call: (10) devoir(_G2394) ? 
+   Call: (11) consciencieux(_G2394) ? 
+   Exit: (11) consciencieux(zoe) ? 
+   Exit: (10) devoir(zoe) ? 
+   Exit: (9) serieux(zoe) ? 
+   Exit: (8) reviser(zoe) ? 
+   Exit: (7) reussir(zoe) ? 
+X = zoe 
+
+2- reussir(X).
+
+3-Pour trouver qui réussit, on part de non réussir donc on prend la clause C3 et il reste non reviser.
+Etape suivante : A partir du résultat précédent, on prend C1 et il reste non serieux.
+Etape suivante : A partir du résultat précédent, on prend c4 et il reste non devoir.
+Etape suivante : A partir du résultat précédent, on prend non C2 et il reste non consciencieux.
+Etape suivante : A partir du résultat précédent, on peut prendre soit C5 ou C6 et on obtient la clause vide.
+
+
+Prolog trouve en premier zoe comme résultat et si on lui demande les autres résultats possible il remonte à l'étape 11 et nous donne aussi pascal.
+
+Exercice 4 :
+
+
+6-
+ancetre(X,Y)
+
+[trace]  ?- ancetre(X, maggie).
+   Call: (7) ancetre(_G1353, maggie) ? creep
+   Call: (8) pere(_G1353, maggie) ? creep
+   Exit: (8) pere(homer, maggie) ? creep
+   Exit: (7) ancetre(homer, maggie) ? creep
+X = homer ;
+   Redo: (7) ancetre(_G1353, maggie) ? creep
+   Call: (8) mere(_G1353, maggie) ? creep
+   Exit: (8) mere(marge, maggie) ? creep
+   Exit: (7) ancetre(marge, maggie) ? creep
+X = marge ;
+   Redo: (7) ancetre(_G1353, maggie) ? creep
+   Call: (8) grandPere(_G1353, maggie) ? creep
+   Call: (9) pere(_G1353, _G1430) ? creep
+   Exit: (9) pere(homer, bart) ? creep
+   Call: (9) pere(bart, maggie) ? creep
+   Fail: (9) pere(bart, maggie) ? creep
+   Redo: (9) pere(_G1353, _G1430) ? creep
+   Exit: (9) pere(homer, lisa) ? creep
+   Call: (9) pere(lisa, maggie) ? creep
+   Fail: (9) pere(lisa, maggie) ? creep
+   Redo: (9) pere(_G1353, _G1430) ? creep
+   Exit: (9) pere(homer, maggie) ? creep
+   Call: (9) pere(maggie, maggie) ? creep
+   Fail: (9) pere(maggie, maggie) ? creep
+   Redo: (9) pere(_G1353, _G1430) ? creep
+   Exit: (9) pere(abraham, homer) ? creep
+   Call: (9) pere(homer, maggie) ? creep
+   Exit: (9) pere(homer, maggie) ? creep
+   Exit: (8) grandPere(abraham, maggie) ? creep
+   Exit: (7) ancetre(abraham, maggie) ? creep
+X = abraham ;
+   Redo: (9) pere(_G1353, _G1430) ? creep
+   Exit: (9) pere(clancy, marge) ? creep
+   Call: (9) pere(marge, maggie) ? creep
+   Fail: (9) pere(marge, maggie) ? creep
+   Redo: (8) grandPere(_G1353, maggie) ? creep
+   Call: (9) pere(_G1353, _G1430) ? creep
+   Exit: (9) pere(homer, bart) ? creep
+   Call: (9) mere(bart, maggie) ? creep
+   Fail: (9) mere(bart, maggie) ? creep
+   Redo: (9) pere(_G1353, _G1430) ? creep
+   Exit: (9) pere(homer, lisa) ? creep
+   Call: (9) mere(lisa, maggie) ? creep
+   Fail: (9) mere(lisa, maggie) ? creep
+   Redo: (9) pere(_G1353, _G1430) ? creep
+   Exit: (9) pere(homer, maggie) ? creep
+   Call: (9) mere(maggie, maggie) ? creep
+   Fail: (9) mere(maggie, maggie) ? creep
+   Redo: (9) pere(_G1353, _G1430) ? creep
+   Exit: (9) pere(abraham, homer) ? creep
+   Call: (9) mere(homer, maggie) ? creep
+   Fail: (9) mere(homer, maggie) ? creep
+   Redo: (9) pere(_G1353, _G1430) ? creep
+   Exit: (9) pere(clancy, marge) ? creep
+   Call: (9) mere(marge, maggie) ? creep
+   Exit: (9) mere(marge, maggie) ? creep
+   Exit: (8) grandPere(clancy, maggie) ? creep
+   Exit: (7) ancetre(clancy, maggie) ? creep
+X = clancy.
+
+On obtient ici les 4 ancetres de maggie à savoir son pere, sa mere et ses deux grand-peres.
+
+
+Exercice 5
+
+2-
+[trace]  ?- et(X,Y,1).
+   Call: (7) et(_G1353, _G1354, 1) ? creep
+   Exit: (7) et(1, 1, 1) ? creep
+X = Y, Y = 1.
+
+=> Il n'existe qu'une seule ligne dans la table de vérité et qui renvoie 1, on a donc une seule solution avec X = Y = 1
+
+[trace]  ?- et(0,0,R).
+   Call: (7) et(0, 0, _G1637) ? creep
+   Exit: (7) et(0, 0, 0) ? creep
+R = 0 ;
+   Redo: (7) et(0, 0, _G1637) ? creep
+   Fail: (7) et(0, 0, _G1637) ? creep
+false.
+
+=> Il n'existe qu'une seule ligne dans la table de vérité et qui prend deux fois 0 en entrée, on a donc une seule solution avec le resutat en sortie 0.
+
+[trace]  ?- et(X,Y,R).
+   Call: (7) et(_G1635, _G1636, _G1637) ? creep
+   Exit: (7) et(0, 0, 0) ? creep
+X = Y, Y = R, R = 0 ;
+   Redo: (7) et(_G1635, _G1636, _G1637) ? creep
+   Exit: (7) et(0, 1, 0) ? creep
+X = R, R = 0,
+Y = 1 ;
+   Redo: (7) et(_G1635, _G1636, _G1637) ? creep
+   Exit: (7) et(1, 0, 0) ? creep
+X = 1,
+Y = R, R = 0 ;
+   Redo: (7) et(_G1635, _G1636, _G1637) ? creep
+   Exit: (7) et(1, 1, 1) ? creep
+X = Y, Y = R, R = 1.
+
+
+=> Ici on renvoie toutes les lignes de la table de vérité.
+
+
+5-
+
+[trace]  ?- circuit2(0,0,X).
+   Call: (7) circuit2(0, 0, _G1919) ? creep
+   Call: (8) nand(0, 0, _G2000) ? creep
+   Exit: (8) nand(0, 0, 1) ? creep
+   Call: (8) non(0, _G1999) ? creep
+   Exit: (8) non(0, 1) ? creep
+   Call: (8) xor(1, 1, _G2000) ? creep
+   Exit: (8) xor(1, 1, 0) ? creep
+   Call: (8) non(0, _G1919) ? creep
+   Exit: (8) non(0, 1) ? creep
+   Exit: (7) circuit2(0, 0, 1) ? creep
+X = 1 ;
+   Redo: (8) nand(0, 0, _G2000) ? creep
+   Fail: (8) nand(0, 0, _G2000) ? creep
+   Fail: (7) circuit2(0, 0, _G1919) ? creep
+false.
+
+=> On trouve bien le resultat attendu à savoir 1 avec X = Y = 0.

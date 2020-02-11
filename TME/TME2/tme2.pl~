@@ -1,0 +1,25 @@
+/*r(a,b).
+q(X,X).
+q(X,Z) :- r(X,Y),q(Y,Z).
+*/
+
+/*reviser(X) :- serieux(X).
+devoir(X) :- consciencieux(X).
+reussir(X) :- reviser(X).
+serieux(X) :- devoir(X).
+consciencieux(zoe).
+consciencieux(pascal).
+*/
+
+pere(homer,bart).
+pere(homer,lisa).
+pere(homer,maggie).
+pere(abraham,homer).
+pere(clancy,marge).
+mere(marge,bart).
+mere(marge,lisa).
+mere(marge,maggie).
+parent(X,Y) :- pere(X,Y).
+parent(X,Y) :- mere(X,Y).
+parents(X,Y,Z) :- pere(X,Z), mere(Y,Z).
+grandPere(X,Y) :- pere(Y,pere(Z,Y)).

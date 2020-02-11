@@ -1,0 +1,132 @@
+Sarah Saleh
+Lenaïg Tasso
+
+Exercice 1 :
+
+2- (i) upd_pa model0 (Kn a holds_b_verte)
+	Comme tous les mondes sont indistingables, on enlève tous les liens.
+	L'agent a ne peut pas savoir ce que possède l'agent b.
+   (ii) upd_pa model0 (Kn a holbs_b_verte)
+	Cette annonce ne change rien, étant donné que l'agent a ne sait pas que b possède la carte verte. Il n'y a pas d'information supplémentaire.
+   
+   
+3- (i)  m1 = upd_pa model0 (Kn b (Ng (holds_b_jaune)))
+	m2 = upd_pa m1 (Ng (Kn a (holds_b_rouge)))
+	m3 = upd_pa m2 (Kn a (Ng (holds_a_jaune))
+	
+   - m1 : b n'a pas la carte jaune donc a ou c l'a. 
+	=> On enleve les mondes rjv et vjr et leurs relations
+   - m2 : b n'a pas la carte jaune. a n'a pas la carte rouge. Si a a la carte verte alors agent a peut en déduire que c à la carte jaune et que b à la carte rouge. Mais il ne le sait pas.
+	=> On enlève le monde vrj.
+   - m3 : Le joueur a n'a pas la carte jaune.
+	=> On enlève les mondes jrv et jvr.
+   ==> Il ne reste plus que le monde rvj.
+   
+   (ii) m1 = upd_pa model0 (Kn c (Ng (holds_c_jaune)))
+	m2 = upd_pa m1  (Ng(Kn a (Kn b (holds_b_jaune))))
+	m3 = upd_pa m2  (Kn c (Ng (holds_b_verte)))
+
+   - m1 : c n'a pas la carte jaune donc a ou b l'a.
+	=> On enleve les mondes rvj et vrj
+   - m2 : a ou b possède la carte jaune. Si a annonce que b ne peut savoir si lui-même a la carte jaune cela veut dire que qu'il sait que b ne possède pas la carte jaune donc que a possède la carte jaune.
+	=> On enleve les mondes rjv et vjr.
+   - m3 : Si le joueur c ne possède pas la carte verte alors c'est le joueur b qui l'a possède.
+	=> On enleve le monde jvr.
+   => Il ne reste plus que le monde jrv.
+ 
+ 
+4- Oui, le résultat final dépend de l'ordre dans lequel les annonces sont faites. 
+Par exemple si on inverse la première et dernière annonce de la première séquence, il restera les mondes rvj et vrj. Les joueurs ne pourront donc pas savoir si quelle carte possède chacun.
+  
+ Exercice 2
+
+1- Albert sait le mois donc il confond les mondes avec les mêmes mois : 15mai, 16mai et 19mai / 17juin et 18juin / 14juillet et 16juillet / 14aout, 15aout et 17aout.
+Bernard sait le jour donc il confond les mondes avec le même jour : 14juillet et 14aout / 15mai et 15aout / 16mai et 16juillet / 17juin et 17aout.
+Il y a aussi des arcs de réfléxivité sur chaque monde.
+   
+2- Albert connait la date de naissance de Cheryl revient a faire une disjonction entre toutes les dates pour l'agent a : Ka P1 V Ka P2 V ... V Ka P10.
+Plus généralement, si un agent i sait la date, c'est à dire que l'agent i sait que Cheryl fête son anniversaire le 15 mai, ou il sait que c'est le 16 mai ou il sait que c'est le 19 mai...etc jusqu'au 17 aout, revient à dire qu'on fait une disjonction entre tousses Ki P avec P la date.
+
+3- (i) a annonce que b ne sait pas. 
+	=> On enlève les mondes de mai et juin car aucun des mondes de mai n'est lié aux mondes de juin et inversement. L'intersection des jours et des mois est donc vide pour ces deux mois donc ils ne partagent aucunes informations sur ces mois la.
+   (ii) b connait la date
+	=> Si b connait la date cela ne peut pas être le 14juillet ou 14aout car ils sont tous les deux indistinguables par l'agent b.
+   (iii) a connait la date
+	=> Si a connait la date, on va avec le même raisonnement que précédemment supprimer les mondes 15aout et 17aout car ils sont indistinguables par l'agent a.
+
+==> Il ne reste plus que le monde du 16juillet qui correspond à la date d'anniversaire de Cheryl.
+
+4- Aucune des annonces ne sont superflues ici.
+
+
+ Exercice 3
+
+Partie 1:
+
+Annonce :
+S : ne sait pas
+B : ne sait pas (mais aurait dû savoir)
+L : annonce 8, 8 => gagne
+
+Cartes en mains : 
+S : A,8 
+B : A,A
+L : 8,8
+---------------------------------
+
+Partie 2 :
+
+Annonce :
+L : ne sait pas
+S : Annonce A,8 => gagne
+
+Cartes en mains : 
+S : A,8 
+B : A,8
+L : A,8
+---------------------------------
+
+Partie 3:
+
+Annonce :
+
+B: ne sait pas
+L: ne sait pas
+S: ne sait pas
+B: ne sait pas
+L: annonce A,8 => gagne
+
+S : A,8 
+B : A,8
+L : A,8
+---------------------------------
+
+Partie 4:
+
+Annonce :
+B : ne sait pas
+L : annonce A,8 => gagne
+
+Cartes en mains : 
+S : A,8 
+B : A,8
+L : A,8
+
+
+Cas complexes :
+1 : A8
+2 : A8
+3 : AA
+L'agent 2 doit se rendre compte qu'il possède les cartes A8 lors de la deuxième fois où il prend la parole.
+Comme l'agent 1 ne sait pas ses cartes, il (agent 2)peut en déduire qu'il ne possède pas AA (car l'agent 1 aurait du savoir qu'il avait savoir qu'il avait 88 dans ce cas).
+L'agent 2 sait désormais que l'agent 1 hésite entre AA et A8.
+Cela lui permet alors de savoir qu'il ne possède pas 88. Il en déduit donc qu'il A8.
+
+1 : A8
+2 : A8
+3 : A8
+Cette fois-ci, c'est l'agent 3 qui se rend qui sait ses cartes en premier.
+Il procède par un raisonnement par la négation. En effet, l'agent 3 sait que s'il possédait une paire (raisonnement précédent), un des deux agents aurait su ses cartes avant lui. 
+Cependant, comme ce n'est pas le cas ici, l'agent 3 peut en déduire qu'il ne possède pas de paire et donc qu'il possède A8.
+
+
